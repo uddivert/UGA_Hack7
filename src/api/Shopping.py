@@ -1,6 +1,10 @@
 import requests
 import json
+import re
+import linecache
 
+global distance
+global duration
 """
 written by Uddhav Swami
 
@@ -19,10 +23,14 @@ def jsonGen():
     response = requests.request("GET", url, headers=headers, data=payload)
     data = response.content
 
-    """
     #    print(response.text)
     with open('directions.json', 'wb') as f:
         f.write(data)
-    """
-     holder = json.loads(data)
 
+    holder = json.loads(data)
+    line = linecache.getline("directions.json", 9)
+    distance = int(re.search(r'\d+',line ).group())
+    line = linecache.getline("directions.json", 13)
+    duration = (re.findall('\d+', line))
+
+jsonGen()
