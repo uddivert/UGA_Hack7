@@ -11,7 +11,8 @@ def login(request):
 
         if form.is_valid():
 
-            return HttpResponseRedirect('/home/')
+            print(form.data)
+            return HttpResponseRedirect('../../home/')
 
     else:
         form = LoginForm()

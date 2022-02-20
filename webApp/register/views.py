@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from webApp.appForms.RegisterForm import RegisterForm
-from webApp.register.models import RegisterModel
 
 
 def register(request):
@@ -12,12 +11,8 @@ def register(request):
 
         if form.is_valid():
 
-            model = RegisterModel(new_name=form.data['name'])
-            model.save()
-            print(model.new_name)
-            print(RegisterModel.objects.all())
-
-            return HttpResponseRedirect('/home/')
+            print(form.data)
+            return HttpResponseRedirect('../../home/')
 
     else:
         form = RegisterForm()
