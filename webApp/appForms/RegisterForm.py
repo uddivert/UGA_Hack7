@@ -9,7 +9,7 @@ class RegisterForm(forms.Form):
     city = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'placeholder': 'City'}))
     zip_code = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'placeholder': 'Zip Code'}))
     email = forms.EmailField(widget=forms.TextInput(attrs={'placeholder': 'Email'}))
-    username = forms.CharField(max_length=50, widget=forms.TextInput(attrs={'placeholder': "UserName"}))
+    username = forms.CharField(max_length=20, widget=forms.TextInput(attrs={'placeholder': "UserName"}))
     password = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Password'}))
 
 
